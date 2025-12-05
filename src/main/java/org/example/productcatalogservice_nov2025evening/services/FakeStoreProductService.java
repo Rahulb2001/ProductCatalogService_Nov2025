@@ -16,7 +16,7 @@ import org.springframework.web.client.RestTemplate;
 
 import java.util.List;
 
-@Service
+@Service("fkps")
 public class FakeStoreProductService implements IProductService {
 
     @Autowired
@@ -48,6 +48,11 @@ public class FakeStoreProductService implements IProductService {
                FakeStoreProductDto.class, id);
 
        return from(fakeStoreProductDtoResponseEntity.getBody());
+    }
+
+    @Override
+    public void deleteProduct(Long id) {
+        //ToDo :To be implemented by students with help of RequestForEntity method
     }
 
     private <T> ResponseEntity<T> requestForEntity(String url, @Nullable Object request, HttpMethod httpMethod,
