@@ -1,6 +1,8 @@
 package org.example.productcatalogservice_nov2025evening.repos;
 
 import org.example.productcatalogservice_nov2025evening.models.Product;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
@@ -24,5 +26,7 @@ public interface ProductRepo extends JpaRepository<Product,Long> {
 
     @Query("SELECT p.name from products p where p.price = :price")
    String getMeNameOfProductWhosePriceIs(Double price);
+
+    Page<Product> findByName(String query, Pageable pageable);
 
 }

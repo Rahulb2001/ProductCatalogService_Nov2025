@@ -1,5 +1,6 @@
 package org.example.productcatalogservice_nov2025evening.models;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -15,7 +16,8 @@ public class Product extends BaseModel {
     private String description;
     private String imageUrl;
     private Double price;
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JsonManagedReference
     private Category category;
 
     //Business specific fields
