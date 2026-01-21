@@ -55,6 +55,11 @@ public class FakeStoreProductService implements IProductService {
         //ToDo :To be implemented by students with help of RequestForEntity method
     }
 
+    @Override
+    public Product getProductBasedOnUserScope(Long productId, Long userId) {
+        return null;
+    }
+
     private <T> ResponseEntity<T> requestForEntity(String url, @Nullable Object request, HttpMethod httpMethod,
                                                    Class<T> responseType, Object... uriVariables) throws RestClientException {
         RequestCallback requestCallback = restTemplate.httpEntityCallback(request, responseType);

@@ -67,6 +67,12 @@ public class ProductController {
         }
     }
 
+    @GetMapping("/{productId}/{userId}")
+    public ProductDto getProductBasedOnUserRole(@PathVariable Long productId, @PathVariable Long userId) {
+        Product product = productService.getProductBasedOnUserScope(productId, userId);
+        return from(product);
+    }
+
     @PostMapping
     public ProductDto createProduct(@RequestBody ProductDto productDto) {
         //return productDto;

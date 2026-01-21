@@ -22,8 +22,8 @@ public class JpaSearchService implements ISearchService {
                                         Integer pageSize,
                                         Integer pageNumber,
                                         List<SortParam> sortParamList) {
-        Sort sort2 = Sort.by("id").descending();
-        Sort sort = Sort.by("price").and(sort2);
+        Sort sort2 = Sort.by("description").descending();
+        Sort sort = Sort.by("category").and(sort2);
         return productRepo.findByName(query, PageRequest.of(pageNumber,pageSize,sort));
     }
 }
